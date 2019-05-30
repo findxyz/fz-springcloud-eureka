@@ -8,4 +8,14 @@ public class HelloFallback implements HelloRpc {
     public String hello() {
         return "hello fallback";
     }
+
+    @Override
+    public String helloFoo() {
+        return "hello foo fallback";
+    }
+
+    @Override
+    public String helloBar() {
+        return "hello bar fallback";
+    }
 }

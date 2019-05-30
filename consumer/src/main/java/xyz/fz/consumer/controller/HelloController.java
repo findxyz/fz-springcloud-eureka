@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/consumer")
-public class ConsumerHelloController {
+public class HelloController {
 
     @Resource
     private HelloRpc helloRpc;
@@ -16,5 +16,15 @@ public class ConsumerHelloController {
     @RequestMapping("/hello")
     public String hello() {
         return helloRpc.hello();
+    }
+
+    @RequestMapping("/hello/foo")
+    public String helloFoo() {
+        return helloRpc.helloFoo();
+    }
+
+    @RequestMapping("/hello/bar")
+    public String helloBar() {
+        return helloRpc.helloBar();
     }
 }

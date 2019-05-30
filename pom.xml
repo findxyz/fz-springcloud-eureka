@@ -11,6 +11,8 @@
         <module>eureka</module>
         <module>provider</module>
         <module>consumer</module>
+        <module>hystrix.dashboard</module>
+        <module>hystrix.turbine</module>
     </modules>
     <packaging>pom</packaging>
 

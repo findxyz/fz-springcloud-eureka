@@ -10,4 +10,10 @@ public interface HelloRpc {
 
     @RequestMapping("/provider/hello")
     String hello();
+
+    @RequestMapping("/provider/hello/foo")
+    String helloFoo();
+
+    @RequestMapping("/provider/hello/bar")
+    String helloBar();
 }

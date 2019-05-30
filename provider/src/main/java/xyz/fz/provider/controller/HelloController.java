@@ -14,4 +14,19 @@ public class HelloController {
     public String hello() {
         return "hello from: " + port;
     }
+
+    @RequestMapping("/hello/foo")
+    public String helloFoo() {
+        try {
+            Thread.sleep(1500L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "hello foo from: " + port;
+    }
+
+    @RequestMapping("/hello/bar")
+    public String helloBar() {
+        return "hello bar from: " + port;
+    }
 }
