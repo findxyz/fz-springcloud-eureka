@@ -1,9 +1,10 @@
 package xyz.fz.consumer.rpc;
 
 import org.springframework.stereotype.Component;
+import xyz.fz.common.param.OrderParam;
 
 @Component
-public class HelloFallback implements HelloRpc {
+public class ProviderFallback implements ProviderRpc {
     @Override
     public String hello() {
         return "hello fallback";
@@ -17,5 +18,15 @@ public class HelloFallback implements HelloRpc {
     @Override
     public String helloBar() {
         return "hello bar fallback";
+    }
+
+    @Override
+    public void helloVoid() {
+        System.out.println("hello void fallback");
+    }
+
+    @Override
+    public void create(OrderParam orderParam) {
+        System.out.println("order create fallback");
     }
 }

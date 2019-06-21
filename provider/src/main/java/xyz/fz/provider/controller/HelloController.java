@@ -17,16 +17,16 @@ public class HelloController {
 
     @RequestMapping("/hello/foo")
     public String helloFoo() {
-        try {
-            Thread.sleep(1500L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return "hello foo from: " + port;
     }
 
     @RequestMapping("/hello/bar")
     public String helloBar() {
         return "hello bar from: " + port;
+    }
+
+    @RequestMapping("/hello/void")
+    public void helloVoid() {
+        System.out.println("hello void");
     }
 }

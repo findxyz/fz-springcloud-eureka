@@ -13,6 +13,7 @@
         <module>consumer</module>
         <module>hystrix.dashboard</module>
         <module>hystrix.turbine</module>
+        <module>common</module>
     </modules>
     <packaging>pom</packaging>
 
