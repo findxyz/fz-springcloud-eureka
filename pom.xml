@@ -10,6 +10,7 @@
     <modules>
         <module>eureka</module>
         <module>provider</module>
+        <module>provider2</module>
         <module>consumer</module>
         <module>hystrix.dashboard</module>
         <module>hystrix.turbine</module>
@@ -41,6 +42,26 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>xyz.fz</groupId>
+                <artifactId>common</artifactId>
+                <version>1.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>User Project Release</name>
+            <url>http://192.168.1.21:8081/repository/maven-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>User Project SNAPSHOTS</name>
+            <url>http://192.168.1.21:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

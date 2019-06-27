@@ -1,4 +1,6 @@
-package xyz.fz.common.param;
+package xyz.fz.common.param.order;
+
+import xyz.fz.common.param.Msg;
 
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class OrderParam extends Msg {
     }
 
     public static class OrderDetail {
+
         private Integer productId;
 
         private Integer productCount;

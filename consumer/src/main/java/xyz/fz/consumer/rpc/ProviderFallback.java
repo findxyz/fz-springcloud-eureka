@@ -1,7 +1,7 @@
 package xyz.fz.consumer.rpc;
 
 import org.springframework.stereotype.Component;
-import xyz.fz.common.param.OrderParam;
+import xyz.fz.common.param.order.OrderParam;
 
 @Component
 public class ProviderFallback implements ProviderRpc {

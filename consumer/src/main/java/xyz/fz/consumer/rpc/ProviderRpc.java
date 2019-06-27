@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import xyz.fz.common.param.OrderParam;
+import xyz.fz.common.param.order.OrderParam;
 
 @Primary
 @FeignClient(value = "SPRING-CLOUD-PROVIDER", fallback = ProviderFallback.class)
