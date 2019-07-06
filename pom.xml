@@ -15,6 +15,8 @@
         <module>hystrix.dashboard</module>
         <module>hystrix.turbine</module>
         <module>common</module>
+        <module>starter-common-dao</module>
+        <module>starter-msg-util</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -47,6 +49,18 @@
                 <groupId>xyz.fz</groupId>
                 <artifactId>common</artifactId>
                 <version>1.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>xyz.fz</groupId>
+                <artifactId>starter-common-dao</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>xyz.fz</groupId>
+                <artifactId>starter-msg-util</artifactId>
+                <version>1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -16,7 +16,7 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping("/create")
-    public void create(@RequestBody OrderParam orderParam) {
-        orderService.create(orderParam);
+    public String create(@RequestBody OrderParam orderParam) {
+        return orderService.create(orderParam);
     }
 }

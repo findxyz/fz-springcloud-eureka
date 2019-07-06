@@ -25,5 +25,5 @@ public interface ProviderRpc {
     void helloVoid();
 
     @RequestMapping(value = "/order/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    void create(@RequestBody OrderParam orderParam);
+    String create(@RequestBody OrderParam orderParam);
 }

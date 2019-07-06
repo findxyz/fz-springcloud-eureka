@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import xyz.fz.common.dao.CommonDao;
 import xyz.fz.common.dao.PagerData;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -188,6 +185,22 @@ public class CommonDaoImpl implements CommonDao {
     public void save(Object entity) {
         try {
             entityManager.persist(entity);
+            /*
+             * Make an instance managed and persistent.
+             * @param entity  entity instance
+             * @throws EntityExistsException if the entity already exists.
+             * (If the entity already exists, the <code>EntityExistsException</code> may
+             * be thrown when the persist operation is invoked, or the
+             * <code>EntityExistsException</code> or another <code>PersistenceException</code> may be
+             * thrown at flush or commit time.)
+             * @throws IllegalArgumentException if the instance is not an
+             *         entity
+             * @throws TransactionRequiredException if there is no transaction when
+             *         invoked on a container-managed entity manager of that is of type
+             *         <code>PersistenceContextType.TRANSACTION</code>
+             */
+            // public void persist(Object entity);
+            entityManager.flush();
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw e;

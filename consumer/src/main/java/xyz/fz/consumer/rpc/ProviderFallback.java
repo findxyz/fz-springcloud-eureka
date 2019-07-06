@@ -26,7 +26,7 @@ public class ProviderFallback implements ProviderRpc {
     }
 
     @Override
-    public void create(OrderParam orderParam) {
-        System.out.println("order create fallback");
+    public String create(OrderParam orderParam) {
+        return "order create fallback";
     }
 }

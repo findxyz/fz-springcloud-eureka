@@ -32,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void create(OrderParam orderParam) {
+    public String create(OrderParam orderParam) {
 
         // 保本本次需要执行的msg到本地（幂等目的）
         msgUtil.saveExecuteMsg(orderParam);
@@ -70,5 +70,7 @@ public class OrderServiceImpl implements OrderService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return "order create success";
     }
 }

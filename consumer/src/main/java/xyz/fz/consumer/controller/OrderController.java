@@ -1,6 +1,6 @@
 package xyz.fz.consumer.controller;
 
-import org.springframework.web.bind.annotation.RequestBody;
+import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.fz.common.param.order.OrderParam;
@@ -16,8 +16,12 @@ public class OrderController {
     private ProviderRpc providerRpc;
 
     @RequestMapping("/create")
-    public String create(@RequestBody OrderParam orderParam) {
-        providerRpc.create(orderParam);
-        return "order create";
+    public String create() {
+        OrderParam orderParam = new OrderParam();
+        OrderParam.OrderDetail orderDetail = new OrderParam.OrderDetail();
+        orderDetail.setProductId(1);
+        orderDetail.setProductCount(1);
+        orderParam.setOrderDetailList(Lists.newArrayList(orderDetail));
+        return providerRpc.create(orderParam);
     }
 }
