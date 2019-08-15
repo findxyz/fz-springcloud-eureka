@@ -6,6 +6,7 @@ import xyz.fz.common.dao.CommonDao;
 import xyz.fz.common.param.order.OrderParam;
 import xyz.fz.common.util.MsgUtil;
 import xyz.fz.common.util.SnowFlake;
+import xyz.fz.common.util.ThreadUtil;
 import xyz.fz.provider.configuration.RabbitmqConfiguration;
 import xyz.fz.provider.entity.Order;
 import xyz.fz.provider.entity.OrderDetail;
@@ -58,18 +59,22 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 忽略失败情况的远程调用
-        try {
-            provider2Rpc.freeze(orderParam2);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ThreadUtil.execute(() -> {
+            try {
+                provider2Rpc.freeze(orderParam2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         // 执行消息回执
-        try {
-            msgUtil.notifyExecuteMsg(orderParam);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ThreadUtil.execute(() -> {
+            try {
+                msgUtil.notifyExecuteMsg(orderParam);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         return "order create success";
     }

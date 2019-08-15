@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import xyz.fz.common.dao.CommonDao;
 import xyz.fz.common.param.order.OrderParam;
 import xyz.fz.common.util.MsgUtil;
+import xyz.fz.common.util.ThreadUtil;
 import xyz.fz.provider2.service.InventoryService;
 
 import javax.annotation.Resource;
@@ -39,10 +40,12 @@ public class InventoryServiceImpl implements InventoryService {
         }
 
         // 发送执行消息回执
-        try {
-            msgUtil.notifyExecuteMsg(orderParam);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ThreadUtil.execute(() -> {
+            try {
+                msgUtil.notifyExecuteMsg(orderParam);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
